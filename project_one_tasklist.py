@@ -27,8 +27,11 @@ def viewTaskList():
 # method to add new tasks to the list
 def addTask():
     task_name = input("What task would you like to add:")
-    #needs conditionals to stop if the number from going to the negatives
     task_number = int(input("What task # would you like to assign this task: "))
+    # makes sure the step number entered cannont be 0 or less than 0
+    while task_number <= 0:
+        print("The task number cannot be 0 or a negative number.");
+        task_number = int(input("What task # would you like to assign this task: "))
     task_list.insert(task_number-1,task_name)     
     
 
