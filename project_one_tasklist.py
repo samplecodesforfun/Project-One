@@ -1,3 +1,9 @@
+import tkinter as tk
+
+window = tk.Tk()
+window.mainloop()
+
+
 #list that stores all our currently saved tasks
 task_list = []
 
@@ -59,10 +65,17 @@ def addTask():
 def subtractTask():
     old_task = input("What task would you like to remove: ")
     task_list.remove(old_task)
-    return old_task
+    
+    # removes our old task from the save file, empties the list, and re adds all the remaining tasks in order
+    task_file = open("tasklist.txt", "w")
+    task_file.write('');
+    for task in task_list:
+        task_file.write(task + "\n")
+    task_file.close()
+
 
 #loadTaskList()
 #viewTaskList()
 #addTask()
 #subtractTask()
-interface()
+#interface()
